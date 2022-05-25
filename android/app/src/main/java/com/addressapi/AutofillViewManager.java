@@ -1,10 +1,16 @@
 package com.addressapi;
 
 
-
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
+import com.facebook.react.views.image.ReactImageView;
 import com.pataa.sdk.OnAddress;
 import com.pataa.sdk.Pataa;
 import com.pataa.sdk.PataaAutoFillView;
@@ -12,8 +18,13 @@ import com.pataa.sdk.User;
 
 import org.json.JSONObject;
 
+import java.util.Map;
+
 public class AutofillViewManager extends SimpleViewManager<PataaAutoFillView> {
     ReactApplicationContext mCallerContext;
+
+
+    private PataaAutoFillView pataaAutoFillView;
 
     public AutofillViewManager(ReactApplicationContext mCallerContext) {
         this.mCallerContext = mCallerContext;
@@ -21,13 +32,13 @@ public class AutofillViewManager extends SimpleViewManager<PataaAutoFillView> {
 
     @Override
     public String getName() {
-        return "RNAutofill";
+        return "AutofillViews";
     }
 
 
     @Override
     protected PataaAutoFillView createViewInstance(ThemedReactContext reactContext) {
-        PataaAutoFillView pataaAutoFillView = new PataaAutoFillView(reactContext, new OnAddress() {
+        pataaAutoFillView = new PataaAutoFillView(reactContext.getCurrentActivity(), new OnAddress() {
             @Override
             public void onNetworkIsNotAvailable() {
                 System.out.println("Native response: No network");
@@ -39,7 +50,15 @@ public class AutofillViewManager extends SimpleViewManager<PataaAutoFillView> {
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("error", message);
-                }catch (Exception ee){
+
+                    WritableMap event = Arguments.createMap();
+                    event.putString("address", jsonObject.toString());
+                    //ReactContext reactContext = (ReactContext)getContext();
+                    reactContext
+                            .getJSModule(RCTEventEmitter.class)
+                            .receiveEvent(pataaAutoFillView.getId(), "topChange", event);
+
+                } catch (Exception ee) {
                     ee.printStackTrace();
                 }
             }
@@ -65,14 +84,40 @@ public class AutofillViewManager extends SimpleViewManager<PataaAutoFillView> {
                     jsonObject.put("userCountryCode", user.getCountry_code());
                     jsonObject.put("mobile", user.getMobile());
 
-                    System.out.println("Native response1: " + user.getFirst_name());
-                    System.out.println("Native response2: " + response.getFormattedAddress());
-                }catch (Exception ee){
+
+                    WritableMap event = Arguments.createMap();
+                    event.putString("address", jsonObject.toString());
+                    //ReactContext reactContext = (ReactContext)getContext();
+                    reactContext
+                            .getJSModule(RCTEventEmitter.class)
+                            .receiveEvent(pataaAutoFillView.getId(), "topChange", event);
+
+
+                } catch (Exception ee) {
                     ee.printStackTrace();
                 }
 
             }
-        }).setCurrentActivity(mCallerContext.getCurrentActivity(),"bIQxCFwL6nxsc39ocarzQHv8n0Itzlyp4r2vdqVGslE=");
+        });
         return pataaAutoFillView;
     }
+
+    @ReactProp(name = "keyss")
+    public void setKey(PataaAutoFillView view, String sources) {
+        pataaAutoFillView = view.setCurrentActivity(mCallerContext.getCurrentActivity(), sources);
+
+    }
+
+    @Override
+    public Map getExportedCustomBubblingEventTypeConstants() {
+        return MapBuilder.builder().put(
+                "topChange",
+                MapBuilder.of(
+                        "phasedRegistrationNames",
+                        MapBuilder.of("bubbled", "onChange")
+                )
+        ).build();
+    }
+
+
 }
