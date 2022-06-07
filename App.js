@@ -32,8 +32,8 @@ const App = () => {
     <View style={{ height:'100%'}}>
       <View style={{ height:220}}>
         <MyNativeCustomView
-        iOSKey={"nLi6p88sLmLRFOgXWrTUqcfX6gsXVi9gy6lJCTjc/tw="}
-        iOSPrefix={"4TVCUP6HC7"}     
+        iOSKey={"===INSERT YOUR iOS SECRET KEY==="}
+        iOSPrefix={"===INSERT YOUR iOS SECRET KEY==="}     
         onGetPataaDetails={(event: Object) => { 
           
           setIsResponse(true)
