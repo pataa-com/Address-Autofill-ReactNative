@@ -15,8 +15,6 @@
 		47A92041283E33AE00E1B933 /* AddressCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A9203E283E33AE00E1B933 /* AddressCustomView.m */; };
 		47A92042283E33AE00E1B933 /* AddressCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9203F283E33AE00E1B933 /* AddressCustomView.swift */; };
 		47A92043283E33AE00E1B933 /* AddressCustomViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A92040283E33AE00E1B933 /* AddressCustomViewManager.swift */; };
-		47A9204C283E3C6800E1B933 /* PataaAutoFillSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A9204A283E3AF900E1B933 /* PataaAutoFillSDK.xcframework */; };
-		47A9204D283E3C6800E1B933 /* PataaAutoFillSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47A9204A283E3AF900E1B933 /* PataaAutoFillSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7699B88040F8A987B510C191 /* libPods-AddressAPI-AddressAPITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AddressAPI-AddressAPITests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -38,7 +36,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				47A9204D283E3C6800E1B933 /* PataaAutoFillSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,7 +58,6 @@
 		47A9203E283E33AE00E1B933 /* AddressCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressCustomView.m; sourceTree = "<group>"; };
 		47A9203F283E33AE00E1B933 /* AddressCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCustomView.swift; sourceTree = "<group>"; };
 		47A92040283E33AE00E1B933 /* AddressCustomViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCustomViewManager.swift; sourceTree = "<group>"; };
-		47A9204A283E3AF900E1B933 /* PataaAutoFillSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PataaAutoFillSDK.xcframework; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-AddressAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AddressAPI.release.xcconfig"; path = "Target Support Files/Pods-AddressAPI/Pods-AddressAPI.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-AddressAPI-AddressAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AddressAPI-AddressAPITests.debug.xcconfig"; path = "Target Support Files/Pods-AddressAPI-AddressAPITests/Pods-AddressAPI-AddressAPITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-AddressAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AddressAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47A9204C283E3C6800E1B933 /* PataaAutoFillSDK.xcframework in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-AddressAPI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,7 +106,6 @@
 		13B07FAE1A68108700A75B9A /* AddressAPI */ = {
 			isa = PBXGroup;
 			children = (
-				47A9204A283E3AF900E1B933 /* PataaAutoFillSDK.xcframework */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				47A9203E283E33AE00E1B933 /* AddressCustomView.m */,

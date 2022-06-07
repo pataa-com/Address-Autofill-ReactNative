@@ -32,7 +32,7 @@ const App = () => {
     <View style={{ height:'100%'}}>
       <View style={{ height:220}}>
         <MyNativeCustomView
-        iOSKey={"OCQ3zMxJrlsho1y0BtEDAIf9oEY2qT3s7uNzqATs13o="}
+        iOSKey={"nLi6p88sLmLRFOgXWrTUqcfX6gsXVi9gy6lJCTjc/tw="}
         iOSPrefix={"4TVCUP6HC7"}     
         onGetPataaDetails={(event: Object) => { 
           
