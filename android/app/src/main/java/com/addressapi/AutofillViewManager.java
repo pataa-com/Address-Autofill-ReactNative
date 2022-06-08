@@ -98,6 +98,11 @@ public class AutofillViewManager extends SimpleViewManager<PataaAutoFillView> {
                 }
 
             }
+
+            @Override
+            public void onError(int statusCode, String message) {
+
+            }
         });
         return pataaAutoFillView;
     }
