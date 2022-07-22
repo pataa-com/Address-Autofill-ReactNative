@@ -24,6 +24,7 @@ const App = () => {
   const [error, setError] = useState('');
   const [status, setStatus] = useState('');
   const [isResponse, setIsResponse] = useState(false);
+  const [email, setEmail] = useState('');
 
   
   console.log("Status: " + status)
@@ -32,8 +33,8 @@ const App = () => {
     <View style={{ height:'100%'}}>
       <View style={{ height:220}}>
         <MyNativeCustomView
-        iOSKey={"===INSERT YOUR iOS SECRET KEY==="}
-        iOSPrefix={"===INSERT YOUR iOS SECRET KEY==="}     
+        iOSKey={"NMyaGrfjCXWokYAGPj1CbWJsbzg8Ou8YtDx4MrTMAz0="}
+        iOSPrefix={"4TVCUP6HC7"}     
         onGetPataaDetails={(event: Object) => { 
           
           setIsResponse(true)
@@ -53,6 +54,7 @@ const App = () => {
           setStatus(event.status)
           setZipcode(event.zipcode)
           setMobile(event.mobile)
+          setEmail(event.email)
 
           console.log("Click event: " + JSON.stringify(event))
         }}
@@ -85,6 +87,7 @@ const App = () => {
           <Text>Zipcode: {zipcode}</Text>
           <Text>Mobile: {mobile}</Text>
           <Text>Map Link: {mapLink}</Text>     
+          <Text>Email: {email}</Text>     
         </View>                 
       }  
     </View>
