@@ -14,11 +14,11 @@ export default class PataaAddressExample extends Component {
 
   render() {
     return (
-      <View style={{flex:1}}>
+      <View style={{padding: 10, flex:1}}>
         <Text >
-          Welcome to React Native Pataa Address API
+          Welcome to React Native Pataa Address API v102
         </Text>
-        <Addressfill keyss="bIQxCFwL6nxsc39ocarzQHv8n0Itzlyp4r2vdqVGslE=" 
+        <Addressfill keyss="JJ3cGSNdUFLvR+pXtzb6r2QHTSSWwzoZKH1kCdzWKVg="
             onGetAddress={(address) => 
             {
               console.log(address);

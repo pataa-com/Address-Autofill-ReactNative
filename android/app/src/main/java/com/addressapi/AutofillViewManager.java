@@ -83,7 +83,7 @@ public class AutofillViewManager extends SimpleViewManager<PataaAutoFillView> {
                     jsonObject.put("lastName", user.getLast_name());
                     jsonObject.put("userCountryCode", user.getCountry_code());
                     jsonObject.put("mobile", user.getMobile());
-
+                    jsonObject.put("email", user.getEmail_id());
 
                     WritableMap event = Arguments.createMap();
                     event.putString("address", jsonObject.toString());
